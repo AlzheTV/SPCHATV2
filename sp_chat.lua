@@ -56,7 +56,7 @@ RegisterCommand('lspd', function(source, args, rawCommand)
 RegisterCommand('ems', function(source, args, rawCommand)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
-    if xPlayer.job.name == "police" then
+    if xPlayer.job.name == "ambulance" then
         local src = source
         local msg = rawCommand:sub(5)
         local args = msg
@@ -78,7 +78,7 @@ RegisterCommand('ems', function(source, args, rawCommand)
 RegisterCommand('taxi', function(source, args, rawCommand)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
-    if xPlayer.job.name == "police" then
+    if xPlayer.job.name == "taxi" then
         local src = source
         local msg = rawCommand:sub(5)
         local args = msg
@@ -100,7 +100,7 @@ RegisterCommand('taxi', function(source, args, rawCommand)
 RegisterCommand('lsc', function(source, args, rawCommand)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
-    if xPlayer.job.name == "police" then
+    if xPlayer.job.name == "lscustom" then
         local src = source
         local msg = rawCommand:sub(5)
         local args = msg
@@ -122,7 +122,7 @@ RegisterCommand('lsc', function(source, args, rawCommand)
 RegisterCommand('unicorn', function(source, args, rawCommand)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
-    if xPlayer.job.name == "police" then
+    if xPlayer.job.name == "unicorn" then
         local src = source
         local msg = rawCommand:sub(5)
         local args = msg
@@ -144,7 +144,7 @@ RegisterCommand('unicorn', function(source, args, rawCommand)
 RegisterCommand('gouv', function(source, args, rawCommand)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
-    if xPlayer.job.name == "police" then
+    if xPlayer.job.name == "state" then
         local src = source
         local msg = rawCommand:sub(5)
         local args = msg
@@ -163,10 +163,9 @@ RegisterCommand('gouv', function(source, args, rawCommand)
     end
  end, false)
 
---[[
-EXEMPLE ! Peu de chose à modifier.
-Les "têtes" / images des notifications sont les suivantes : https://wiki.gtanet.work/index.php?title=Notification_Pictures.
-RegisterCommand('gouv', function(source, args, rawCommand) ------ COMMANDE. Attention, à changer sinon le script l'oubliera/plantera.
+--[[ EXEMPLE ! Peu de chose à modifier.
+ℹ) Les "têtes" / images des notifications sont les suivantes : https://wiki.gtanet.work/index.php?title=Notification_Pictures.
+RegisterCommand('gouv', function(source, args, rawCommand) -- ℹ) COMMANDE. Attention, à changer sinon le script l'oubliera/plantera.
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
     if xPlayer.job.name == "state" then
@@ -178,7 +177,7 @@ RegisterCommand('gouv', function(source, args, rawCommand) ------ COMMANDE. Atte
             local xPlayers	= ESX.GetPlayers()
         for i=1, #xPlayers, 1 do
             local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
-            TriggerClientEvent('esx:showAdvancedNotification', xPlayers[i], '💥 GOUVERNEMENT 💥', '', ''..msg..'', 'CHAR_MP_FM_CONTACT', 0) ----- LA NOTIFICATION. Ne changez que le nom et le CHAR_XXXX pour plus de beauté.
+            TriggerClientEvent('esx:showAdvancedNotification', xPlayers[i], '💥 GOUVERNEMENT 💥', '', ''..msg..'', 'CHAR_MP_FM_CONTACT', 0) -- ℹ) LA NOTIFICATION. Ne changez que le nom et le CHAR_XXXX pour plus de beauté.
         end
     else
         TriggerClientEvent('esx:showAdvancedNotification', _source, 'Erreur.', '' , '~r~Non autorisé.', 'CHAR_BLOCKED', 0) ---- Vous ne devriez pas y toucher.
